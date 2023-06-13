@@ -47,7 +47,25 @@ namespace Interface
         {
             Console.WriteLine("Oracle Deleted");
         }
-    }  
+    }
+
+    class MySqlCustomerDal : ICustomerDal
+    {
+        public void Add()
+        {
+            Console.WriteLine("MySql Added");
+        }
+
+        public void Delete()
+        {
+            Console.WriteLine("MySql Deleted");
+        }
+
+        public void Update()
+        {
+            Console.WriteLine("MySql Deleted");
+        }
+    }
 
     class CustomerManager
     {

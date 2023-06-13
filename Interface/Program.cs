@@ -10,10 +10,25 @@ namespace Interface
     {
         static void Main(string[] args)
         {
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.Add(new OracleCustomerDal());
+            ICustomerDal[] customerDals = new ICustomerDal[3]
+            {
+                new OracleCustomerDal(),
+                new SqlServerCustomerDal(),
+                new MySqlCustomerDal()
+            };
+
+            foreach (var customerDal in customerDals)
+            {
+                customerDal.Delete();
+            }
 
             Console.ReadLine();
+        }
+
+        private static void Demo()
+        {
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new OracleCustomerDal());
         }
 
         private static void InterfacesIntro()
